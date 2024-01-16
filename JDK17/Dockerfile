@@ -1,0 +1,4 @@
+FROM openjdk:17.0.2-slim-buster
+ADD ./arthas-bin /app/arthas-bin
+ADD ./skywalking-agent /skywalking-agent
+RUN echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free" >/etc/apt/sources.list && echo  "deb http://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free" >>/etc/apt/sources.list && echo  "deb http://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib non-free" >>/etc/apt/sources.list && echo  "deb http://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free" >>/etc/apt/sources.list && apt-get update && apt-get install -y curl telnet vim iputils-ping net-tools unzip procps ttf-dejavu fontconfig libsasl2-2 libpq5 libyaml-0-2 &&  cp -a /usr/lib/x86_64-linux-gnu/libsasl2.so.2 /usr/lib/x86_64-linux-gnu/libsasl2.so.3
