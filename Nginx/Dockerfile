@@ -1,6 +1,8 @@
 FROM alpine:3.19.1 AS builder
 
+# https://github.com/nginx/nginx
 ADD ./nginx-1.21.1/ /opt/nginx-1.21.1
+# https://github.com/chobits/ngx_http_proxy_connect_module
 ADD ./ngx_http_proxy_connect_module-0.0.5 /opt/ngx_http_proxy_connect_module-0.0.5
 
 RUN apk --no-cache add \
